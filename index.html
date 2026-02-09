@@ -1,55 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Opto Tech – Coming Soon</title>
-
-<!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;800&display=swap" rel="stylesheet">
-
-<!-- Main CSS -->
-<link rel="stylesheet" href="style.css">
-
-<!-- GSAP -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VISION LOADING | OptoTech</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- GSAP for Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 </head>
-
 <body>
-
-<div class="marquee top">
-  <span>COMING SOON • COMING SOON • COMING SOON • </span>
-</div>
-
-<div class="marquee bottom">
-  <span>COMING SOON • COMING SOON • COMING SOON • </span>
-</div>
-
-<div class="wrapper">
-  <div class="card">
-
-    <!-- LOGO -->
-    <img src="opto.png" alt="Opto Tech" class="logo">
-
-    <h1>VISION. LOADING…</h1>
-    <p>We’re upgrading your optical experience.<br>Something sharper is coming.</p>
-
-    <!-- LENS -->
-    <div class="lens" id="lens"></div>
-
-    <!-- CTA -->
-    <div class="buttons">
-      <a href="https://wa.me/XXXXXXXXXX" class="whatsapp">WhatsApp Us</a>
-      <a href="#">Visit Store to Purchase</a>
-      <a href="tel:XXXXXXXXXX">Call Now</a>
+    <div class="bg-circles">
+        <div class="circle" style="width: 400px; height: 400px; top: -10%; left: -10%;"></div>
+        <div class="circle" style="width: 300px; height: 300px; bottom: 10%; right: -5%; animation-delay: -5s;"></div>
     </div>
 
-    <footer>Thank you for your patience 👓</footer>
+    <div class="marquee-wrapper top-marquee">
+        <div class="marquee">
+            <span>Vision is Coming • Upgrading your Sight • OptoTech Premium • Modern Eyewear • Optical Excellence • </span>
+            <span>Vision is Coming • Upgrading your Sight • OptoTech Premium • Modern Eyewear • Optical Excellence • </span>
+        </div>
+    </div>
 
-  </div>
-</div>
+    <main class="glass-card">
+        <img src="https://www.optotech.lk/wp-content/uploads/2022/11/logo.png" alt="OptoTech Logo" class="logo">
 
-<!-- Main JS -->
-<script src="script.js"></script>
+        <h1>VISION.<br>LOADING…</h1>
+
+        <p class="subtitle">
+            We’re upgrading your optical experience.<br>
+            Something sharper is coming.
+        </p>
+
+        <div class="lens-container">
+            <div class="lens"></div>
+            <div class="lens-glow"></div>
+        </div>
+
+        <div class="contact-section">
+            <p class="contact-label">Until we publish our site, contact us</p>
+
+            <div class="buttons-stack">
+                <a href="https://wa.me/94777123456" class="contact-button">
+                    <i class="fab fa-whatsapp"></i>
+                    <div class="btn-info">
+                        <span class="btn-title">WhatsApp</span>
+                        <span class="btn-value">+94 77 712 3456</span>
+                    </div>
+                </a>
+
+                <a href="tel:+94777123456" class="contact-button">
+                    <i class="fas fa-phone-alt"></i>
+                    <div class="btn-info">
+                        <span class="btn-title">Call Now</span>
+                        <span class="btn-value">+94 77 712 3456</span>
+                    </div>
+                </a>
+
+                <div class="contact-button">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div class="btn-info">
+                        <span class="btn-title">Visit Us</span>
+                        <span class="btn-value">No. 123 Vision Avenue, Colombo</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <p class="thanks">Thanks for your patience</p>
+    </main>
+
+    <div class="marquee-wrapper bottom-marquee">
+        <div class="marquee" style="animation-direction: reverse;">
+            <span>Coming Soon • Stay Tuned • Sharp Vision • Premium Eyewear • Optical Innovation • </span>
+            <span>Coming Soon • Stay Tuned • Sharp Vision • Premium Eyewear • Optical Innovation • </span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>

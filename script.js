@@ -1,29 +1,33 @@
-gsap.from(".card",{
-  y:40,
-  opacity:0,
-  duration:1.2,
-  ease:"power3.out"
-});
+document.addEventListener('DOMContentLoaded', () => {
+    const card = document.querySelector('.glass-card');
 
-gsap.from(".logo",{
-  scale:0.6,
-  opacity:0,
-  duration:1,
-  delay:0.3
-});
+    // 3D Tilt Effect
+    document.addEventListener('mousemove', (e) => {
+        const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
+        const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
+        card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+    });
 
-gsap.from("h1, p",{
-  y:20,
-  opacity:0,
-  stagger:0.2,
-  delay:0.5,
-  duration:0.8
-});
+    // Reset Tilt on mouse leave
+    document.addEventListener('mouseleave', () => {
+        card.style.transform = `rotateY(0deg) rotateX(0deg)`;
+    });
 
-gsap.to("#lens",{
-  rotationY:360,
-  rotationX:360,
-  repeat:-1,
-  ease:"none",
-  duration:18
+    // Entrance Animations
+    const tl = gsap.timeline();
+
+    tl.to('.glass-card', { opacity: 1, y: 0, duration: 1.2, ease: "power4.out" })
+      .to('.logo', { opacity: 1, scale: 1, duration: 0.8 }, "-=0.6")
+      .to('h1', { opacity: 1, y: 0, duration: 0.8 }, "-=0.4")
+      .to('.subtitle', { opacity: 1, y: 0, duration: 0.8 }, "-=0.6")
+      .to('.lens-container', { opacity: 1, scale: 1, duration: 1 }, "-=0.6")
+      .to('.contact-section', { opacity: 1, y: 0, duration: 0.8 }, "-=0.6")
+      .to('.contact-button', {
+        opacity: 1,
+        x: 0,
+        stagger: 0.1,
+        duration: 0.8,
+        ease: "back.out(1.7)"
+      }, "-=0.4")
+      .to('.thanks', { opacity: 1, duration: 1 }, "-=0.2");
 });
