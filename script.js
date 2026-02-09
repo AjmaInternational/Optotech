@@ -1,112 +1,78 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const tl = gsap.timeline();
-
-    // 1. Initial State
-    gsap.set('.hero h1, .hero .subtext, .contact-section, .footer', {
-        opacity: 0,
-        y: 20,
-        filter: 'blur(10px)'
+    console.log('DOM Content Loaded');
+    // Initial reveal animation
+    const tl = gsap.timeline({
+        onComplete: () => console.log('Timeline Complete'),
+        onStart: () => console.log('Timeline Started')
     });
 
-    gsap.set('.contact-card', {
+    tl.from('.navbar', {
+        y: -50,
         opacity: 0,
-        y: 20,
-        scale: 0.95
-    });
-
-    // 2. Entrance Animation
-    tl.to('.hero h1', {
         duration: 1.2,
-        opacity: 1,
-        y: 0,
-        filter: 'blur(0px)',
         ease: 'power4.out'
     })
-    .to('.hero .subtext', {
+    .from('.pre-heading', {
+        y: 20,
+        opacity: 0,
         duration: 0.8,
-        opacity: 1,
-        y: 0,
-        filter: 'blur(0px)',
         ease: 'power3.out'
     }, '-=0.8')
-    .to('.contact-section', {
+    .from('.main-title', {
+        y: 40,
+        opacity: 0,
+        duration: 1,
+        ease: 'power4.out',
+        stagger: 0.2
+    }, '-=0.6')
+    .from('.description', {
+        y: 20,
+        opacity: 0,
         duration: 0.8,
-        opacity: 1,
-        y: 0,
-        filter: 'blur(0px)',
         ease: 'power3.out'
+    }, '-=0.6')
+    .from('.hub-title', {
+        opacity: 0,
+        duration: 0.8
     }, '-=0.4')
-    .to('.contact-card', {
-        duration: 0.6,
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        stagger: 0.1,
-        ease: 'power2.out'
-    }, '-=0.4')
-    .to('.footer', {
+    .from('.glass-card', {
+        y: 30,
+        opacity: 0,
         duration: 0.8,
-        opacity: 1,
-        y: 0,
-        filter: 'blur(0px)',
-        ease: 'power2.out'
+        stagger: 0.1,
+        ease: 'power3.out'
+    }, '-=0.6')
+    .from('.minimal-footer', {
+        opacity: 0,
+        duration: 1
     }, '-=0.4');
 
-    // 3. Mouse Interaction
-    const flare = document.getElementById('lens-flare');
-    const scene = document.querySelector('.floating-elements');
-
-    // Center flare initially
-    gsap.set(flare, { x: window.innerWidth / 2 - 300, y: window.innerHeight / 2 - 300 });
-
-    window.addEventListener('mousemove', (e) => {
+    // Mouse Parallax Effect
+    document.addEventListener('mousemove', (e) => {
         const { clientX, clientY } = e;
-        const x = clientX / window.innerWidth;
-        const y = clientY / window.innerHeight;
+        const xPos = (clientX / window.innerWidth - 0.5) * 2;
+        const yPos = (clientY / window.innerHeight - 0.5) * 2;
 
-        // Move lens flare
-        gsap.to(flare, {
-            duration: 1,
-            x: clientX - 300,
-            y: clientY - 300,
-            ease: 'power2.out'
-        });
+        gsap.to('.lens-1', { x: xPos * 50, y: yPos * 50, duration: 1 });
+        gsap.to('.lens-2', { x: xPos * -30, y: yPos * -30, duration: 1 });
+        gsap.to('.lens-3', { x: xPos * 20, y: yPos * 20, duration: 1 });
 
-        // Parallax effect for scene
-        const moveX = (x - 0.5) * 30;
-        const moveY = (y - 0.5) * 30;
-
-        gsap.to(scene, {
-            duration: 1.5,
-            rotateY: moveX,
-            rotateX: -moveY,
-            ease: 'power2.out'
-        });
-
-        // Subtle movement for spheres
-        gsap.to('.sphere-1', {
-            duration: 2,
-            x: moveX * 1.5,
-            y: moveY * 1.5,
-            ease: 'power2.out'
-        });
-
-        gsap.to('.sphere-2', {
-            duration: 2,
-            x: -moveX * 1,
-            y: -moveY * 1,
-            ease: 'power2.out'
+        const cards = document.querySelectorAll('.glass-card');
+        cards.forEach(card => {
+            const rect = card.getBoundingClientRect();
+            const cardX = clientX - (rect.left + rect.width / 2);
+            const cardY = clientY - (rect.top + rect.height / 2);
+            const dist = Math.sqrt(cardX * cardX + cardY * cardY);
+            if (dist < 400) {
+                gsap.to(card, { rotationY: cardX / 20, rotationX: -cardY / 20, duration: 0.5 });
+            } else {
+                gsap.to(card, { rotationY: 0, rotationX: 0, duration: 0.5 });
+            }
         });
     });
 
-    // Touch support for flare
-    window.addEventListener('touchmove', (e) => {
-        const touch = e.touches[0];
-        gsap.to(flare, {
-            duration: 1,
-            x: touch.clientX - 300,
-            y: touch.clientY - 300,
-            ease: 'power2.out'
-        });
-    });
+    gsap.fromTo('body',
+        { filter: 'blur(10px) brightness(0.5)' },
+        { filter: 'blur(0px) brightness(1)', duration: 2, ease: 'power2.inOut' }
+    );
 });
