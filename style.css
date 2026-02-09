@@ -1,0 +1,128 @@
+:root{
+  --bg:#06090D;
+  --blue:#0496D7;
+  --deep:#063B63;
+  --white:#ffffff;
+  --glass:rgba(255,255,255,0.08);
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Inter',sans-serif;
+}
+
+body{
+  background:radial-gradient(circle at top,var(--deep),var(--bg));
+  color:var(--white);
+  min-height:100vh;
+  overflow:hidden;
+}
+
+/* MARQUEE */
+.marquee{
+  position:fixed;
+  width:100%;
+  white-space:nowrap;
+  overflow:hidden;
+  font-weight:800;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  font-size:14px;
+  color:var(--blue);
+}
+.marquee.top{top:10px;}
+.marquee.bottom{bottom:10px;}
+.marquee span{
+  display:inline-block;
+  padding-left:100%;
+  animation:scroll 15s linear infinite;
+}
+@keyframes scroll{
+  to{transform:translateX(-100%);}
+}
+
+/* CENTER */
+.wrapper{
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:20px;
+}
+
+.card{
+  background:var(--glass);
+  backdrop-filter:blur(20px);
+  border-radius:24px;
+  padding:32px 24px;
+  max-width:420px;
+  width:100%;
+  box-shadow:0 0 60px rgba(4,150,215,0.25);
+}
+
+/* LOGO */
+.logo{
+  width:160px;
+  margin:0 auto 20px;
+}
+
+/* TEXT */
+h1{
+  font-size:28px;
+  font-weight:800;
+  margin-bottom:10px;
+}
+p{
+  font-size:14px;
+  opacity:.85;
+}
+
+/* 3D LENS */
+.lens{
+  margin:30px auto;
+  width:140px;
+  height:140px;
+  border-radius:50%;
+  border:10px solid var(--blue);
+  position:relative;
+  transform-style:preserve-3d;
+}
+.lens::before{
+  content:"";
+  position:absolute;
+  inset:15px;
+  border-radius:50%;
+  background:radial-gradient(circle at top,var(--white),transparent 60%);
+  opacity:.4;
+}
+
+/* BUTTONS */
+.buttons a{
+  display:block;
+  margin:12px 0;
+  padding:14px;
+  border-radius:14px;
+  text-decoration:none;
+  color:#fff;
+  font-weight:600;
+  background:linear-gradient(135deg,var(--blue),var(--deep));
+  transition:transform .2s ease, opacity .2s ease;
+}
+.buttons a:hover{
+  transform:translateY(-2px);
+  opacity:.9;
+}
+.buttons a.whatsapp{
+  background:#25D366;
+  color:#000;
+}
+
+/* FOOTER */
+footer{
+  margin-top:20px;
+  font-size:12px;
+  opacity:.6;
+}
