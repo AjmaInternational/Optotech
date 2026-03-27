@@ -1,55 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Opto Tech – Coming Soon</title>
-
-<!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;800&display=swap" rel="stylesheet">
-
-<!-- Main CSS -->
-<link rel="stylesheet" href="style.css">
-
-<!-- GSAP -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VISION. LOADING... | OptoTech</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Animation Libs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
-<div class="marquee top">
-  <span>COMING SOON • COMING SOON • COMING SOON • </span>
-</div>
-
-<div class="marquee bottom">
-  <span>COMING SOON • COMING SOON • COMING SOON • </span>
-</div>
-
-<div class="wrapper">
-  <div class="card">
-
-    <!-- LOGO -->
-    <img src="opto.png" alt="Opto Tech" class="logo">
-
-    <h1>VISION. LOADING…</h1>
-    <p>We’re upgrading your optical experience.<br>Something sharper is coming.</p>
-
-    <!-- LENS -->
-    <div class="lens" id="lens"></div>
-
-    <!-- CTA -->
-    <div class="buttons">
-      <a href="https://wa.me/XXXXXXXXXX" class="whatsapp">WhatsApp Us</a>
-      <a href="#">Visit Store to Purchase</a>
-      <a href="tel:XXXXXXXXXX">Call Now</a>
+    <!-- Premium 3D Background -->
+    <div class="luxury-bg">
+        <div class="noise-overlay"></div>
+        <div class="lens-element lens-1"></div>
+        <div class="lens-element lens-2"></div>
+        <div class="lens-element lens-3"></div>
+        <div class="light-leak"></div>
     </div>
 
-    <footer>Thank you for your patience 👓</footer>
+    <div class="main-wrapper">
+        <header class="navbar">
+            <img src="opto.png" alt="OptoTech" class="brand-logo">
+        </header>
 
-  </div>
-</div>
+        <main class="hero-container">
+            <div class="hero-text-content">
+                <div class="pre-heading">OPTICAL EXCELLENCE</div>
+                <h1 class="main-title">VISION.<br><span class="accent">LOADING…</span></h1>
+                <p class="description">
+                    We’re upgrading your optical experience. <br>
+                    <span>Something sharper is coming.</span>
+                </p>
+            </div>
 
-<!-- Main JS -->
-<script src="script.js"></script>
+            <div class="contact-hub">
+                <h2 class="hub-title">UNTIL WE PUBLISH OUR SITE, CONTACT US</h2>
+
+                <div class="glass-grid">
+                    <a href="https://wa.me/94777123456" class="glass-card" target="_blank">
+                        <div class="icon-box"><i class="fab fa-whatsapp"></i></div>
+                        <div class="info">
+                            <span class="label">WhatsApp</span>
+                            <span class="value">+94 77 712 3456</span>
+                        </div>
+                    </a>
+
+                    <a href="tel:+94777123456" class="glass-card">
+                        <div class="icon-box"><i class="fas fa-phone-alt"></i></div>
+                        <div class="info">
+                            <span class="label">Call Now</span>
+                            <span class="value">+94 77 712 3456</span>
+                        </div>
+                    </a>
+
+                    <div class="glass-card address-card">
+                        <div class="icon-box"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="info">
+                            <span class="label">Location</span>
+                            <span class="value">No. 123 Vision Avenue, Colombo</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="minimal-footer">
+            <div class="footer-status">
+                <span class="pulse-dot"></span>
+                <p class="patience-text">thanks for the patience</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
